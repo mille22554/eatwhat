@@ -13,6 +13,9 @@
         android:theme="@style/Theme.EatWhat"
         tools:ignore="Instantiatable">
         <activity
+            android:name=".MainActivity7"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity6"
             android:exported="false" />
         <activity android:name=".MainActivity5" />
