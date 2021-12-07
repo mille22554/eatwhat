@@ -1,20 +1,21 @@
 package com.example.eatwhat;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
 import java.util.List;
-
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
-    gv gv;
 
-    public MyAdapter(ArrayList<String> list) {
-        gv = (gv) gv.getApplicationContext();
+    private List<String> mData;
+
+    MyAdapter(List<String> data) {
+        mData = data;
     }
 
     // 建立ViewHolder
@@ -25,6 +26,15 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         ViewHolder(View itemView) {
             super(itemView);
             txtItem = (TextView) itemView.findViewById(R.id.txtItem);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    gv.shopname= String.valueOf(txtItem.getText());
+                    Intent intent = new Intent();
+                    intent.setClass(view.getContext(), MainActivity5.class);
+                    view.getContext().startActivity(intent);
+                }
+            });
         }
     }
 
@@ -39,11 +49,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         // 設置txtItem要顯示的內容
-        holder.txtItem.setText(gv.list.get(position));
+        holder.txtItem.setText(mData.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return gv.list.size();
+        return mData.size();
     }
 }

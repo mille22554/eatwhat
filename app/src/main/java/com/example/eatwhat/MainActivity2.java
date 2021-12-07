@@ -21,6 +21,10 @@ public class MainActivity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
     }
+    @Override
+    public void onBackPressed() {
+        moveTaskToBack(true);
+    }
     public void eat_what(View view){
         gv gv=(gv) getApplicationContext();
         Random x=new Random();
