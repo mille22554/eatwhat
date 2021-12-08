@@ -7,7 +7,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.example.eatwhat"
+        applicationId "com.moro.eatwhat"
         minSdkVersion 28
         targetSdkVersion 30
         versionCode 1
